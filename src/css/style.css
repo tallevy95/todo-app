@@ -85,38 +85,38 @@ form button:hover {
     transform: translateY(-2px);
 }
 
-/* List */
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
 }
 
-li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
     border-bottom: 1px solid #eee;
-    transition: background-color 0.2s;
 }
 
-li:hover {
+tbody tr:hover {
     background-color: #f9f9f9;
 }
 
-li:last-child {
-    border-bottom: none;
+.status-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.task-info {
-    flex-grow: 1;
-    margin-left: 10px;
-    color: #2c3e50;
-}
-
-.task-actions button {
-    margin-left: 5px;
+.status-buttons button {
     background: none;
     border: none;
     cursor: pointer;
@@ -125,6 +125,6 @@ li:last-child {
     transition: color 0.2s;
 }
 
-.task-actions button:hover {
+.status-buttons button:hover {
     color: #4CAF50;
 }
