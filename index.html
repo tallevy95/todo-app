@@ -13,7 +13,7 @@
         <div class="add-item">
           <h2>Add Item...</h2>
           <form id="todo-form">
-            <label>
+            <label for="todo-input">
               Task:
               <input
                 type="text"
@@ -22,10 +22,10 @@
                 required
               />
             </label>
-            <lable>
+            <label for="todo-date">
               Due Date:
               <input type="date" id="todo-date" />
-            </lable>
+            </label>
             <button id="submit-new-task" type="submit">Add</button>
           </form>
         </div>
@@ -63,7 +63,6 @@
         </div>
       </div>
     </div>
-    <!-- <div id="delete-completed"></div> -->
     <script src="src/js/app.js"></script>
   </body>
 </html>

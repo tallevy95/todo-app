@@ -85,6 +85,11 @@ form button:hover {
     transform: translateY(-2px);
 }
 
+form button:focus {
+    outline: 2px solid #4CAF50;
+    outline-offset: 2px;
+}
+
 /* Table styles */
 table {
     width: 100%;
@@ -101,7 +106,7 @@ thead {
 }
 
 th, td {
-    text-align: left;
+    text-align: start;
     padding: 12px;
     border-bottom: 1px solid #eee;
 }
@@ -132,3 +137,11 @@ tbody tr:nth-child(even) {
 .status-buttons button:hover {
     color: #4CAF50;
 }
+
+
+@media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+  
