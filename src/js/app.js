@@ -43,14 +43,14 @@ function addTask(event) {
   const task = taskInput.value.trim();
   const due = dueInput.value;
 
-  if (task === '') {
+  if (task === "") {
     alert("Please enter a task.");
     return;
   }
 
   const newTask = new Task(taskIdCounter++, task, due);
   currentList.push(newTask);
-  
+
   renderTodoList(currentList, "todo-table", false);
 
   document.getElementById("todo-form").reset();
@@ -62,39 +62,41 @@ function renderTodoList(list, tableId, isDone) {
   tbody.innerHTML = "";
 
   list.forEach((task, index) => {
-    const tr = document.createElement('tr');
-    
+    const tr = document.createElement("tr");
+
     // Task description cell
-    const taskCell = document.createElement('td');
+    const taskCell = document.createElement("td");
     taskCell.textContent = task.task;
-    
+
     // Due date cell
-    const dueCell = document.createElement('td');
+    const dueCell = document.createElement("td");
     dueCell.textContent = task.due;
-    
+
     //  Checkbox cell
-    const statusCell = document.createElement('td');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
+    const statusCell = document.createElement("td");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
     checkbox.checked = task.completed;
-    checkbox.setAttribute("aria-label", `Mark task "${task.task}" as ${isDone ? "not completed" : "completed"}`);
+    checkbox.setAttribute(
+      "aria-label",
+      `Mark task "${task.task}" as ${isDone ? "not completed" : "completed"}`
+    );
     checkbox.dataset.taskId = task.id; // Store task ID in DOM for reference
 
     // Attach event listener directly to this checkbox
     checkbox.addEventListener("change", handleToggleTask);
-    
+
     statusCell.appendChild(checkbox);
 
     // Build row
     tr.appendChild(taskCell);
     tr.appendChild(dueCell);
     tr.appendChild(statusCell);
-    
+
     // Append row to table body
     tbody.appendChild(tr);
   });
 }
-
 
 /**
  * Handles the toggling of a task's completion status via checkbox.
@@ -128,7 +130,6 @@ function handleToggleTask(event) {
   renderTodoList(doneList, "done-table", true);
 }
 
-
 // ===========================
 // Event Listeners
 // ==========================
@@ -136,4 +137,6 @@ function handleToggleTask(event) {
 /**
  * Attach submit listener to the form to handle new task additions.
  */
-document.getElementById("todo-form").addEventListener("submit", addTask);
+document
+  .getElementById("todo-form")
+  .addEventListener("submit", (e) => addTask(e));
